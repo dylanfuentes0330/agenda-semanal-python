@@ -47,6 +47,13 @@ while True:
         tarea = Tarea(nombre, descripcion, hora)
         dia.agregar_tarea(tarea)
 
+        archivo = open("tareas.txt", "a")
+
+        archivo.write(f"{dia_nombre} - {hora} - {nombre} - {descripcion}\n")
+
+        archivo.close()
+
+
     # AGREGAR EVENTO
     elif opcion == "2":
         nombre = input("Nombre del evento: ")
@@ -70,6 +77,12 @@ while True:
 
         evento = Evento(nombre, hora, descripcion)
         dia.agregar_evento(evento)
+        
+        archivo = open("eventos.txt", "a")
+
+        archivo.write(f"{dia_nombre} - {hora} - {nombre} - {descripcion}\n")
+
+        archivo.close()
 
     # AGREGAR ACTIVIDAD
     elif opcion == "3":
@@ -94,6 +107,12 @@ while True:
 
         actividad = Actividad(nombre, duracion, hora)
         dia.agregar_actividad(actividad)
+
+        archivo = open("actividades.txt", "a")
+
+        archivo.write(f"{dia_nombre} - {hora} - {nombre} - {duracion} min\n")
+
+        archivo.close()
 
     # MOSTRAR DÍA
     elif opcion == "4":
