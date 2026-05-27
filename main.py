@@ -167,7 +167,27 @@ while True:
 
         dia.eliminar_actividad(nombre)
 
-# SALIR
-    elif opcion == "9":
+ elif opcion == "9":
+        dia_nombre = input("Día de la semana: ")
+        nombre = input("Nombre de la tarea: ")
+
+        dia = agenda.seleccionar_dia(dia_nombre)
+
+        if dia is None:
+            print("Día no válido")
+            continue
+
+        encontrada = False
+
+        for tarea in dia.tareas:
+            if tarea.nombre.lower() == nombre.lower():
+                tarea.completar()
+                encontrada = True
+                print("Tarea completada")
+
+        if not encontrada:
+            print("Tarea no encontrada")
+
+    elif opcion == "10":
         print("Saliendo del programa...")
         break
